@@ -5,6 +5,8 @@ import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
+import Banner from '@/components/banner'
+
 export default function Home() {
   return (
     <>
@@ -15,6 +17,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Netflix</h1>
+
+      {/* Navbar */}
+
+      <Banner title="Movie title" subtitle="very oridinary subtitle" imgUrl="/static/banner.jpeg"/>
+
+      {/* Cards */}
     </>
   )
 }

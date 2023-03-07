@@ -99,6 +99,11 @@ button {
   margin: 0;
   border: 0px;
   outline: 0px;
+  /* ===== */
+  color: var(--white10);
+  border: 1px solid var(--white10);
+  border-radius: 5px;
+  padding: 5px;
 }
 
 @media (prefers-color-scheme: dark) {
