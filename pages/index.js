@@ -6,6 +6,7 @@ import styles from '@/styles/Home.module.css'
 const inter = Inter({ subsets: ['latin'] })
 
 import Banner from '@/components/banner'
+import NavBar from '@/components/navbar'
 
 export default function Home() {
   return (
@@ -16,11 +17,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Netflix</h1>
+      <NavBar username="anand@gmail.com"/>
 
       {/* Navbar */}
 
-      <Banner title="Movie title" subtitle="ordinary subtitle" imgUrl="/static/banner.jpeg"/>
+      <Banner title="Movie title" subtitle="very ordinary subtitle" imgUrl="/static/banner.jpeg"/>
 
       {/* Cards */}
     </>
