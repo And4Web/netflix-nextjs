@@ -5,8 +5,9 @@ import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-import Banner from '@/components/banner'
-import NavBar from '@/components/navbar'
+import Banner from '@/components/banner';
+import NavBar from '@/components/navbar';
+import Card from '@/components/card';
 
 export default function Home() {
   return (
@@ -17,13 +18,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NavBar username="anand@gmail.com"/>
 
-      {/* Navbar */}
+       {/* Navbar */}
+      <NavBar username="anand@gmail.com"/>     
 
+      {/* Banner */}
       <Banner title="Movie title" subtitle="very ordinary subtitle" imgUrl="/static/banner.jpeg"/>
 
       {/* Cards */}
+      <Card imgUrl="/static/banner.jpeg" size="large"/>
+      <Card imgUrl="/static/banner.jpeg" size="medium"/>
+      <Card imgUrl="/static/banner.jpeg" size="small"/>
     </>
   )
 }
