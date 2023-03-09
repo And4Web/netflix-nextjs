@@ -20,7 +20,7 @@ export default function Home() {
 
       {/* Navbar */}
 
-      <Banner title="Movie title" subtitle="very oridinary subtitle" imgUrl="/static/banner.jpeg"/>
+      <Banner title="Movie title" subtitle="ordinary subtitle" imgUrl="/static/banner.jpeg"/>
 
       {/* Cards */}
     </>

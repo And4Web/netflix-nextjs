@@ -77,12 +77,12 @@
   bottom: 0px;
   --tw-gradient-stops: var(--tw-gradient-from),
     var(--tw-gradient-to, rgba(0, 0, 0, 0));
-  background-image: linear-gradient(to top, var(--tw-gradient-stops));
+  background-image: linear-gradient(to top, var(--tw-gradient-stops)); 
 
   --tw-gradient-from: var(--black);
 
-  background-size: cover;
-  background-position: "50% 50%";
+  /* background-size: cover; */
+  /* background-position: "50% 50%"; */
 }
 
 .btnWithIcon {
