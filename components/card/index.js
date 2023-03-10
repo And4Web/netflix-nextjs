@@ -1,8 +1,10 @@
+import { useState } from "react";
 import Image from "next/image";
 import styles from "./card.module.css";
 
 function Card(props) {
   const { imgUrl, size } = props;
+  const [imgSrc, setImgSrc] = useState(imgUrl);
 
   const classMap = {
     large: styles.lgItem,
@@ -10,7 +12,9 @@ function Card(props) {
     small: styles.smItem,
   };
 
-  // console.log("classMap: ", classMap[size]);
+  const handleOnError = () => {
+    setImgSrc("/static/banner.jpeg")
+  }
 
   return (
     <div>
@@ -18,9 +22,10 @@ function Card(props) {
         {`Card: ${size}`}
         <div className={classMap[size]}>
           <Image
-            src={imgUrl}
+            src={imgSrc}
             alt={`card image: ${size}`}
             fill
+            onError={handleOnError}
             className={styles.cardImg}
           />
         </div>
