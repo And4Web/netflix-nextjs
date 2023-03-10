@@ -7,7 +7,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 import Banner from '@/components/banner';
 import NavBar from '@/components/navbar';
-import Card from '@/components/card';
+import Card from '@/components/card/card';
+import SectionCard from '@/components/card/section-card'
 
 export default function Home() {
   return (
@@ -26,9 +27,10 @@ export default function Home() {
       <Banner title="Movie title" subtitle="very ordinary subtitle" imgUrl="/static/banner.jpeg"/>
 
       {/* Cards */}
-      <Card imgUrl="/static/banner.jpeg" size="large"/>
+      <SectionCard title="section card"/>
+      {/* <Card imgUrl="/static/banner.jpeg" size="large"/>
       <Card imgUrl="/static/banner.jpeg" size="medium"/>
-      <Card imgUrl="/static/banner.jpeg" size="small"/>
+      <Card imgUrl="/static/banner.jpeg" size="small"/> */}
     </>
   )
 }

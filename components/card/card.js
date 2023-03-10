@@ -22,7 +22,7 @@ function Card(props) {
   return (
     
       <div className={styles.container}>
-        {`Card: ${size}`}
+        {/* {`Card: ${size}`} */}
         <motion.div 
         whileHover={{scale: 1.2, transition: {duration: 0.5}}}
         whileTap={{scale: 0.9}}
