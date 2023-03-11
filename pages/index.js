@@ -5,33 +5,22 @@ import styles from "@/styles/Home.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+import { getVideos } from "../lib/videos";
+
 import Banner from "@/components/banner";
 import NavBar from "@/components/navbar";
 import Card from "@/components/card/card";
 import SectionCard from "@/components/card/section-card";
 
-export default function Home() {
+export const getServerSideProps = () => {
+  const disneyVideos = getVideos();
+  return {
+    props: {disneyVideos}
+  }
+}
 
-  const disneyVideos = [
-    {
-      imgUrl: "/static/banner.jpeg"
-    },
-    {
-      imgUrl: "/static/banner.jpeg"
-    },
-    {
-      imgUrl: "/static/banner.jpeg"
-    },
-    {
-      imgUrl: "/static/banner.jpeg"
-    },
-    {
-      imgUrl: "/static/banner.jpeg"
-    },
-    {
-      imgUrl: "/static/banner.jpeg"
-    },
-  ]
+export default function Home(props) {
+  const {disneyVideos} = props;  
 
   return (
     <>
