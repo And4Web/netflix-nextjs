@@ -5,7 +5,7 @@ import styles from "@/styles/Home.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-import { getVideos } from "../lib/videos";
+import { getVideos, getPopularVideos } from "../lib/videos";
 
 import Banner from "@/components/banner";
 import NavBar from "@/components/navbar";
@@ -14,7 +14,7 @@ import SectionCard from "@/components/card/section-card";
 
 export async function getServerSideProps(){
   const disneyVideos = await getVideos("disney trailers");
-  const popularVideos = await getVideos("most popular");
+  const popularVideos = await getPopularVideos();
   const premiumVideos = await getVideos("premium");
   const productivityVideos = await getVideos("productivity");
   const adventureVideos = await getVideos("adventure");
@@ -40,25 +40,27 @@ export default function Home(props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+<div className={styles.main}>
+     {/* Navbar */}
+     <NavBar username="anand@gmail.com" />
 
-      {/* Navbar */}
-      <NavBar username="anand@gmail.com" />
+{/* Banner */}
+<Banner
+  title="Movie title"
+  subtitle="very ordinary subtitle"
+  imgUrl="/static/banner.jpeg"
+/>
 
-      {/* Banner */}
-      <Banner
-        title="Movie title"
-        subtitle="very ordinary subtitle"
-        imgUrl="/static/banner.jpeg"
-      />
+{/* Cards */}
+<div className={styles.sectionWrapper}>
+  <SectionCard title="Disney" videos={disneyVideos} size="large"/>
+  <SectionCard title="Most popular" videos={popularVideos} size="small"/>
+  <SectionCard title="Premium" videos={premiumVideos} size="medium"/>
+  <SectionCard title="Productivity" videos={productivityVideos} size="large"/>
+  <SectionCard title="Adventure" videos={adventureVideos} size="small"/>
+</div>
 
-      {/* Cards */}
-      <div className={styles.sectionWrapper}>
-        <SectionCard title="Disney" videos={disneyVideos} size="large"/>
-        <SectionCard title="Most popular" videos={popularVideos} size="small"/>
-        <SectionCard title="Premium" videos={premiumVideos} size="medium"/>
-        <SectionCard title="Productivity" videos={productivityVideos} size="large"/>
-        <SectionCard title="Adventure" videos={adventureVideos} size="small"/>
-      </div>
-    </>
+</div>
+     </>
   );
 }
