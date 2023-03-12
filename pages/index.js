@@ -12,8 +12,11 @@ import NavBar from "@/components/navbar";
 import Card from "@/components/card/card";
 import SectionCard from "@/components/card/section-card";
 
-export const getServerSideProps = () => {
-  const disneyVideos = getVideos();
+export async function getServerSideProps(){
+  const disneyVideos = await getVideos();
+
+  // console.log("<===disneyVideos most recent:===> ", disneyVideos);
+  
   return {
     props: {disneyVideos}
   }
