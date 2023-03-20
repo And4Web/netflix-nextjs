@@ -5,9 +5,15 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Login.module.css";
 
+import {magic, RPCError, RPCErrorCode} from '../lib/magic-client';
+
 function Login() {
   const [email, setEmail] = useState("");
   const [userMsg, setUserMsg] = useState("");
+
+  // console.log("Magic introduction: ", magic.auth.loginWithMagicLink);
+  console.log("RPCError: ", RPCError)
+  console.log("RPCErrorCode: ", RPCErrorCode)
 
   const router = useRouter();
 
@@ -18,23 +24,31 @@ function Login() {
     setEmail(email);
   };
 
-  const handleLoginWithEmail = (e) => {
+  const handleLoginWithEmail = async (e) => {
     e.preventDefault();
     console.log("Login button clicked.")
 
     if(email){
-      if(email === "anand@gmail.com"){
-        // route to dashboard
-        router.push("/")
-        console.log("route to dashboard")
-      }else{
+      // console.log("email: ", email);
+      if(email === "andpmedia1@gmail.com"){        
+        try {
+          const didToken = await magic.auth.loginWithMagicLink({
+            email,
+            redirectURI: new URL('/callback', window.location.origin).href, // optional redirect back to your app after magic link is clicked
+          });
+
+          console.log( "didToken from login.js: ",didToken );
+
+        } catch (error) {
+          console.log("Error from login.js: ", error)
+        }/*-- */
+    }else{
         setUserMsg("Something went wrong logging in")
       }
     }else {
       // show user message
       setUserMsg("Enter a valid email address");
     }
-
   }
   
   return (
