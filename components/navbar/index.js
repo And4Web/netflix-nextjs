@@ -73,7 +73,7 @@ const NavBar = () => {
 
       <nav className={styles.navContainer}>
         <div>
-          {/* <a>Sign out1</a> */}
+          
           <button className={styles.usernameBtn}>
             <p className={styles.username}>{username}</p>
             <div style={{ backgroundColor: "white", marginLeft: "1rem" }}>
@@ -87,7 +87,7 @@ const NavBar = () => {
             </div>
           </button>
 
-          {showDropdown && (
+          {username && (showDropdown && (
             <div className={styles.navDropdown}>
               <div>
                 <Link href="/login" legacyBehavior >
@@ -96,7 +96,7 @@ const NavBar = () => {
                 <div className={styles.lineWrapper}></div>
               </div>
             </div>
-          )}
+          ))}
         </div>
       </nav>
     </div>
