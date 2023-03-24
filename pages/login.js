@@ -12,14 +12,12 @@ function Login() {
   const [userMsg, setUserMsg] = useState("");
 
   // console.log("Magic introduction: ", magic.auth.loginWithMagicLink);
-  console.log("RPCError: ", RPCError)
-  console.log("RPCErrorCode: ", RPCErrorCode)
 
   const router = useRouter();
 
   const handleOnChangeEmail = (e) => {
     setUserMsg("");
-    console.log("event", e);
+    
     const email = e.target.value;
     setEmail(email);
   };
@@ -29,12 +27,11 @@ function Login() {
     console.log("Login button clicked.")
 
     if(email){
-      // console.log("email: ", email);
+      
       if(email === "andpmedia1@gmail.com"){        
         try {
           const didToken = await magic.auth.loginWithMagicLink({
-            email,
-            redirectURI: new URL('/callback', window.location.origin).href, // optional redirect back to your app after magic link is clicked
+            email          
           });
 
           console.log( "didToken from login.js: ",didToken );
