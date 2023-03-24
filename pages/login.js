@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
@@ -12,9 +12,21 @@ function Login() {
   const [userMsg, setUserMsg] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // console.log("Magic introduction: ", magic.auth.loginWithMagicLink);
-
   const router = useRouter();
+
+  useEffect(()=>{
+    const handleRouterChange = () => {
+      setIsLoading(false)
+    }
+    
+    router.events.on('routeChangeComplete', handleRouterChange);
+    router.events.on('routeChangeError', handleRouterChange);
+
+    return ()=>{
+      router.events.off('routeChangeComplete', handleRouterChange);
+      router.events.off('routeChangeError', handleRouterChange);
+    }
+  }, [router])
 
   const handleOnChangeEmail = (e) => {
     setUserMsg("");    
@@ -34,7 +46,7 @@ function Login() {
           });
 
           if(didToken){
-            setIsLoading(false);
+            // setIsLoading(false);
             router.push("/");
           }
         } catch (error) {
