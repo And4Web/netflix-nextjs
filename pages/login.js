@@ -10,44 +10,45 @@ import {magic, RPCError, RPCErrorCode} from '../lib/magic-client';
 function Login() {
   const [email, setEmail] = useState("");
   const [userMsg, setUserMsg] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // console.log("Magic introduction: ", magic.auth.loginWithMagicLink);
 
   const router = useRouter();
 
   const handleOnChangeEmail = (e) => {
-    setUserMsg("");
-    
+    setUserMsg("");    
     const email = e.target.value;
     setEmail(email);
   };
 
   const handleLoginWithEmail = async (e) => {
     e.preventDefault();
-    console.log("Login button clicked.")
 
-    if(email){
-      
+    if(email){      
       if(email === "andpmedia1@gmail.com"){        
         try {
+          setIsLoading(true);
           const didToken = await magic.auth.loginWithMagicLink({
             email          
           });
 
-          console.log( "didToken from login.js: ",didToken );
           if(didToken){
+            setIsLoading(false);
             router.push("/");
           }
-
         } catch (error) {
+          setIsLoading(false);
           console.log("Error from login.js: ", error)
         }/*-- */
     }else{
+        setIsLoading(false);
         setUserMsg("Something went wrong logging in")
       }
     }else {
       // show user message
-      setUserMsg("Enter a valid email address");
+      setIsLoading(false);
+      setUserMsg("Enter a valid email address");      
     }
   }
   
@@ -86,7 +87,7 @@ function Login() {
           />
           <p className={styles.userMsg}>{userMsg}</p>
           <button onClick={handleLoginWithEmail} className={styles.loginBtn}>
-            Sign In
+            {isLoading? "Signing in...": "Sign In"}
           </button>
         </div>
       </main>
