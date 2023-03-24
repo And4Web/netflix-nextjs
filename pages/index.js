@@ -29,8 +29,6 @@ export async function getServerSideProps(){
 export default function Home(props) {
   const {disneyVideos, popularVideos, premiumVideos, adventureVideos, productivityVideos} = props;  
 
-  console.log("Magic client: ", magicClient);
-
   return (
     <>
       <Head>

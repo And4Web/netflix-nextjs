@@ -35,6 +35,9 @@ function Login() {
           });
 
           console.log( "didToken from login.js: ",didToken );
+          if(didToken){
+            router.push("/");
+          }
 
         } catch (error) {
           console.log("Error from login.js: ", error)
