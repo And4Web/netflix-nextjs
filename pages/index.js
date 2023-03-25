@@ -56,6 +56,7 @@ export default function Home(props) {
 
         {/* Banner */}
         <Banner
+          videoId="new-video-released"
           title="Movie title"
           subtitle="very ordinary subtitle"
           imgUrl="/static/banner.jpeg"
