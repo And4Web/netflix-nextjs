@@ -8,9 +8,8 @@ function Video() {
   const router = useRouter();
 
   return (
-    <div>
-      Some Video: {router.query.videoId}
-      <Modal isOpen={true} contentLabel="Watch the video" onRequestClose={()=>{router.back()}} overlayClassName={styles.overlay}>
+    <div className={styles.container}>      
+      <Modal isOpen={true} contentLabel="Watch the video" onRequestClose={()=>router.back()} overlayClassName={styles.overlay} className={styles.modal}>
         <div>Modal body</div>
       </Modal>
     </div>
