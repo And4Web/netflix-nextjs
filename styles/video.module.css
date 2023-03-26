@@ -10,7 +10,7 @@
   background-color: var(--black40);
   top: 10%;
 
-  outline: none;
+  outline: none; 
   border-radius: 10px;
   border: 1px solid var(--shadow10);
 }

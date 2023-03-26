@@ -10,7 +10,9 @@ function Video() {
   return (
     <div className={styles.container}>      
       <Modal isOpen={true} contentLabel="Watch the video" onRequestClose={()=>router.back()} overlayClassName={styles.overlay} className={styles.modal}>
-        <div>Modal body</div>
+      <iframe id="player" type="text/html" width="640" height="390"
+  src={`http://www.youtube.com/embed/${router.query.videoId}?enablejsapi=1&origin=http://example.com&controls=0&rel=0&autoplay=0`}
+  frameborder="0"></iframe>
       </Modal>
     </div>
   );
