@@ -6,9 +6,7 @@ import clsx from "classnames";
 
 Modal.setAppElement("#__next");
 
-function Video() {
-  const router = useRouter();
-
+export async function getStaticProps() {
   const video = {
     title: "Hi cute dog",
     publishTime: "1990-01-01",
@@ -16,6 +14,26 @@ function Video() {
     channelTitle: "Paramount Pictures",
     viewCount: 10000,
   };
+
+  return {
+    props: {
+      video,
+    },   
+    revalidate: 10, 
+  }
+}
+
+export async function getStaticPaths() {
+  const listOfVideos = ["mYfJxlgR2jw", "4zH5iYM4wJo", "KCPEHsAViiQ"]
+
+  const paths = listOfVideos.map((videoId) => ({
+    params: {videoId},
+  }))
+  return { paths, fallback: 'blocking' }
+}
+
+function Video({video}) {
+  const router = useRouter(); 
 
   const { title, publishTime, description, channelTitle, viewCount } = video;
 
