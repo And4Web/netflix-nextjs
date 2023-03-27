@@ -8,11 +8,12 @@ import {getYoutubeVideoById} from '../../lib/videos'
 
 Modal.setAppElement("#__next");
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
 
-  const videoId = "mYfJxlgR2jw";
+  const videoId = context.params.videoId;
+
   const videoArray = await getYoutubeVideoById(videoId);
-
+  
   return {
     props: {
       video: videoArray.length > 0? videoArray[0]: null,
