@@ -4,20 +4,18 @@ import styles from "../../styles/video.module.css";
 
 import clsx from "classnames";
 
+import {getYoutubeVideoById} from '../../lib/videos'
+
 Modal.setAppElement("#__next");
 
 export async function getStaticProps() {
-  const video = {
-    title: "Hi cute dog",
-    publishTime: "1990-01-01",
-    description: "A big red dog that is super cute, can he get any bigger?",
-    channelTitle: "Paramount Pictures",
-    viewCount: 10000,
-  };
+
+  const videoId = "mYfJxlgR2jw";
+  const videoArray = await getYoutubeVideoById(videoId);
 
   return {
     props: {
-      video,
+      video: videoArray.length > 0? videoArray[0]: null,
     },   
     revalidate: 10, 
   }
