@@ -31,8 +31,6 @@ export async function getServerSideProps() {
   };
 }
 
-console.log("Hasura in index.js: ", startFetchMyQuery());
-
 export default function Home(props) {
   const {
     disneyVideos,
@@ -42,6 +40,7 @@ export default function Home(props) {
     productivityVideos,
   } = props;
 
+  console.log("Hasura in index.js: ", startFetchMyQuery());
 
   return (
     <>
