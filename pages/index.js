@@ -6,6 +6,7 @@ import styles from "@/styles/Home.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 import { getVideos, getPopularVideos } from "../lib/videos";
+import {startExecuteMyMutation, startFetchMyQuery} from '../lib/db/hasura';
 
 import Banner from "@/components/banner";
 import NavBar from "@/components/navbar";
@@ -30,6 +31,8 @@ export async function getServerSideProps() {
   };
 }
 
+console.log("Hasura in index.js: ", startFetchMyQuery());
+
 export default function Home(props) {
   const {
     disneyVideos,
@@ -38,6 +41,7 @@ export default function Home(props) {
     adventureVideos,
     productivityVideos,
   } = props;
+
 
   return (
     <>
