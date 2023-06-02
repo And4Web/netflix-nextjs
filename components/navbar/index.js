@@ -57,7 +57,7 @@ const NavBar = () => {
       <div className={styles.wrapper}>
         <Link href="/" legacyBehavior>
           <a className={styles.logoLink}>
-            <div className={styles.logoWrapper}> <Image src="/static/netflix.svg" alt="netflix-log" height="50" width="170"/> </div>
+            <div className={styles.logoWrapper}> <Image src="/static/netflix.svg" alt="netflix-logo" height="50" width="170"/> </div>
           </a>
         </Link>
       </div>
@@ -72,8 +72,7 @@ const NavBar = () => {
       </ul>
 
       <nav className={styles.navContainer}>
-        <div>
-          
+        <div>          
           <button className={styles.usernameBtn}>
             <p className={styles.username}>{username}</p>
             <div style={{ backgroundColor: "white", marginLeft: "1rem" }}>

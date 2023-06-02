@@ -10,8 +10,7 @@ function SectionCard(props) {
     <section className={styles.container}>
       <h2 className={styles.title}>{title}</h2>
       <div className={styles.cardWrapper}>
-        {videos.map((video, index)=>{
-          
+        {videos.map((video, index)=>{          
           return (
             <Link href={`/video/${video.id}`}  key={index}>
               <Card key={index} id={index} imgUrl={video.imgUrl} size={size} />           

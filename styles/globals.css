@@ -38,6 +38,8 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 } */
+
+
 /* ============from the instructor's code=========== */
 body {
   font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, Segoe UI,
@@ -58,7 +60,6 @@ a {
   text-decoration: none;
   outline: 0px;
 }
-
 
 p {
   font-weight: 500;
