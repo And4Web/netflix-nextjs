@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Login.module.css";
 
-import {magic, RPCError, RPCErrorCode} from '../lib/magic-client';
+import {magic} from '../lib/magic-client';
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -92,7 +92,7 @@ function Login() {
         <div className={styles.mainWrapper}>
           <h1 className={styles.signinHeader}>Sign In</h1>
           <input
-            type="text"
+            type="email"
             placeholder="Email address"
             className={styles.emailInput}
             onChange={handleOnChangeEmail}

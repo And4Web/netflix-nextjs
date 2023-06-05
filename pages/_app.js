@@ -10,19 +10,19 @@ export default function App({ Component, pageProps }) {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
-  // useEffect(()=>{
-  //   const effect = async ()=>{
-  //     const isLoggedIn = await magic.user.isLoggedIn();
-  //     if(isLoggedIn){
-  //       // setIsLoading(false)
-  //       router.push("/");
-  //     }else{
-  //       // setIsLoading(false)
-  //       router.push("/login");
-  //     }
-  //   }
-  //   effect();
-  // }, [router])  
+  useEffect(()=>{
+    const effect = async ()=>{
+      const isLoggedIn = await magic.user.isLoggedIn();
+      if(isLoggedIn){
+        // setIsLoading(false)
+        router.push("/");
+      }else{
+        // setIsLoading(false)
+        router.push("/login");
+      }
+    }
+    effect();
+  }, [router])  
 
   useEffect(()=>{
     const handleRouterChange = () => {
@@ -36,5 +36,5 @@ export default function App({ Component, pageProps }) {
     }
   }, [router])
 
-  return /*isLoading? <Loading/>: */<Component {...pageProps} />
+  return isLoading? <Loading/>: <Component {...pageProps} />
 }

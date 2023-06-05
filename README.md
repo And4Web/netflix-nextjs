@@ -36,3 +36,5 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+by default all environmet variables loaded through .env.local file are only available to the Node.js environment, meaning they are not exposed to the browser. In order to expose the variable to the browser we have to prefix the variable with 'NEXT_PUBLIC_'
